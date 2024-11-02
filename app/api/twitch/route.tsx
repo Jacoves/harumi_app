@@ -25,7 +25,9 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify(
         response
       )
-    })
+    }).then(response => response.text())
+    .then(console.log)
+    .catch(console.log)
   })
   return Response.json(response)
 }
