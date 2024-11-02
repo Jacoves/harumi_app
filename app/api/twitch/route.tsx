@@ -20,13 +20,12 @@ export async function POST(request: NextRequest) {
   const webhook_url = `https://webhook.site/71be7601-2806-4a68-aacb-47bb788095e7`
   const response = await request.json()
   const res = await fetch('https://api.kyroskoh.xyz/valorant/v1/mmr/br/Superaks/4773?show=combo&display=1')
-  fetch(webhook_url, {
+  const text = await res.text()
+  const webhook = await fetch(webhook_url, {
     method: 'POST',
     body: JSON.stringify(
       response
     )
-  }).then(data => data.text())
-  .then(console.log)
-  .catch(console.log)
-  return Response.json({original: response, res})
+  })
+  return Response.json({original: response, text, webhook})
 }
