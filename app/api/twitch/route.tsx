@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {type NextRequest} from 'next/server'
+import {type NextRequest, NextResponse} from 'next/server'
 
 export async function GET(request: NextRequest) {
   const webhook_url = `https://webhook.site/71be7601-2806-4a68-aacb-47bb788095e7`
@@ -25,5 +25,5 @@ export async function POST(request: NextRequest) {
       response
     )
   })
-  return Response.json(response)
+  return new Response(response['challenge'])
 }
