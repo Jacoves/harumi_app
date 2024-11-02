@@ -19,15 +19,13 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const webhook_url = `https://webhook.site/71be7601-2806-4a68-aacb-47bb788095e7`
   const response = await request.json()
-  request.json().then(response => {
-    fetch(webhook_url, {
-      method: 'POST',
-      body: JSON.stringify(
-        response
-      )
-    }).then(response => response.text())
-    .then(console.log)
-    .catch(console.log)
-  })
+  fetch(webhook_url, {
+    method: 'POST',
+    body: JSON.stringify(
+      response
+    )
+  }).then(data => data.text())
+  .then(console.log)
+  .catch(console.log)
   return Response.json(response)
 }
