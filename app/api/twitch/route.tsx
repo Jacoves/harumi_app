@@ -2,7 +2,7 @@
 import {type NextRequest, NextResponse} from 'next/server'
 
 export async function GET(request: NextRequest) {
-  const webhook_url = `https://webhook.site/71be7601-2806-4a68-aacb-47bb788095e7`
+  const webhook_url = `https://webhook.site/dde3db59-0914-4885-a7c9-e99982a52b9d`
   request.json().then(response => {
     fetch(webhook_url, {
       method: 'POST',
@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const webhook_url = `https://webhook.site/71be7601-2806-4a68-aacb-47bb788095e7`
+  const webhook_url = `https://webhook.site/dde3db59-0914-4885-a7c9-e99982a52b9d`
   const response = await request.json()
   const webhook = await fetch(webhook_url, {
     method: 'POST',
